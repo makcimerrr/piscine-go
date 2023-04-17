@@ -1,1 +1,1 @@
-ls -p | grep -v / | tr '\n' ','
+ls -tp --time=atime | grep -v '/$' | awk '{printf "%s,", $0}' | sort
