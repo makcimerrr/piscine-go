@@ -1,1 +1,1 @@
-ls -pA --ignore={.,..} --time=atime --format=commas | grep '/$'
+ls -p | grep -v / | tr '\n' ','
