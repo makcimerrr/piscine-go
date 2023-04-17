@@ -1,0 +1,1 @@
+ls -Apct --group-directories-first | grep -v "^\." | tr '\n' ',' | sed 's/,$/\n/'
