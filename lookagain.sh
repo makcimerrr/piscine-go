@@ -1,0 +1,1 @@
+ls -Apct -r| grep -v "^\." | cut -d "." -f1
