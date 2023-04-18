@@ -1,1 +1,1 @@
-ls --group-directories-first -r | grep -v "^\." | cut -d "." -f1
+ls *.sh -r| grep -v "^\." | cut -d "." -f1
