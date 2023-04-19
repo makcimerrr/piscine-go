@@ -5,7 +5,7 @@ import "github.com/01-edu/z01"
 func PrintComb2() {
 	for i := 0; i <= 98; i++ {
 		for j := i + 1; j <= 99; j++ {
-			if (i/10 != i%10) && (j/10 != j%10) && (i/10 != j/10) && (i%10 != j%10) {
+			if i/10 < j/10 || (i/10 == j/10 && i%10 < j%10) {
 				z01.PrintRune(rune(i/10 + '0'))
 				z01.PrintRune(rune(i%10 + '0'))
 				z01.PrintRune(' ')
