@@ -1,8 +1,6 @@
 package piscine
 
-import (
-	"github.com/01-edu/z01"
-)
+import "github.com/01-edu/z01"
 
 func PrintCombN(n int) {
 	// Vérifie que n est compris entre 1 et 9 inclus
@@ -23,6 +21,9 @@ func PrintCombN(n int) {
 				z01.PrintRune(' ')
 			}
 		}
+
+		// Imprime un retour à la ligne à la fin
+		z01.PrintRune('\n')
 	} else {
 		// Pour chaque chiffre de 0 à 10-n inclus
 		for i := 0; i <= 9-n+1; i++ {
