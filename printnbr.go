@@ -7,8 +7,10 @@ func printNbr(n int) {
 		z01.PrintRune('-')
 		n = -n
 	}
-	if n >= 10 {
-		piscine.printNbr(n / 10)
+	for n >= 10 {
+		digit := n % 10
+		n /= 10
+		z01.PrintRune(rune(digit + '0'))
 	}
-	z01.PrintRune(rune(n%10 + '0'))
+	z01.PrintRune(rune(n + '0'))
 }
