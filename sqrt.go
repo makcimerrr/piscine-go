@@ -11,5 +11,8 @@ func Sqrt(nb int) int {
 	if racine*racine == nb {
 		return racine
 	}
-	return racine - 1
+	if (racine+1)*(racine+1) == nb {
+		return racine + 1
+	}
+	return 0
 }
