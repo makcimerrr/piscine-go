@@ -1,4 +1,8 @@
-package piscine
+package main
+
+import (
+	"fmt"
+)
 
 func FindNextPrime(nb int) int {
 	if nb < 2 {
@@ -11,14 +15,14 @@ func FindNextPrime(nb int) int {
 	}
 
 	for {
-		if IsPrime(i) {
+		if izPrime(i) {
 			return i
 		}
 		i += 2
 	}
 }
 
-func IsPrime(n int) bool {
+func izPrime(n int) bool {
 	if n <= 1 {
 		return false
 	}
@@ -38,4 +42,9 @@ func IsPrime(n int) bool {
 	}
 
 	return true
+}
+
+func main() {
+	fmt.Println(FindNextPrime(5))
+	fmt.Println(FindNextPrime(4))
 }
