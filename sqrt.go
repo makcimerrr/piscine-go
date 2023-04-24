@@ -1,21 +1,20 @@
 package piscine
 
+import "math"
+
 func Sqrt(nb int) int {
-	if nb == 0 {
+	if nb < 0 || math.MaxInt16 < nb {
 		return 0
+	} else {
+		for i := 0; i < 101; i++ {
+			if nb == ii {
+				nb = i
+				break
+			} else if ii > nb {
+				nb = 0
+				break
+			}
+		}
 	}
-
-	racine := nb
-	for racine*racine > nb {
-		racine = (racine + nb/racine) / 2
-	}
-	if racine*racine == nb {
-		return racine
-	}
-	return racine - 1
+	return nb
 }
-
-//func main() {
-//fmt.Println(Sqrt(4))
-//fmt.Println(Sqrt(3))
-//}
