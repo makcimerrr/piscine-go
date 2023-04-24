@@ -6,57 +6,55 @@ import (
 
 func EightQueens() {
 	// Créer un tableau de 8x8 pour stocker le plateau de jeu
-	board := make([][]bool, 8)
-	for i := range board {
-		board[i] = make([]bool, 8)
+	tableau := make([][]bool, 8)
+	for i := range tableau {
+		tableau[i] = make([]bool, 8)
 	}
 
 	// Appeler la fonction recursive qui résoudra le puzzle
-	solve(board, 0, []int{})
+	solve(tableau, 0, []int{})
 }
 
-func solve(board [][]bool, row int, columns []int) {
+func solve(tableau [][]bool, lignes int, colonnes []int) {
 	// Si toutes les reines sont placées, imprimer la solution et terminer la récursion
-	if row == 8 {
-		printBoard(columns)
+	if lignes == 8 {
+		printBoard(colonnes)
 		return
 	}
 
 	// Essayer de placer une reine dans chaque colonne de la ligne actuelle
-	for col := 0; col < 8; col++ {
+	for colonne := 0; colonne < 8; colonne++ {
 		// Vérifier si la position est valide (pas d'autres reines menaçant cette position)
-		if isValid(columns, row, col) {
+		if isValid(colonnes, lignes, colonne) {
 			// Si c'est le cas, ajouter cette colonne à la liste des colonnes et marquer la position sur le plateau
-			columns = append(columns, col)
-			board[row][col] = true
+			colonnes = append(colonnes, colonne)
+			tableau[lignes][colonne] = true
 
 			// Appeler récursivement la fonction pour placer les reines restantes sur les lignes suivantes
-			solve(board, row+1, columns)
+			solve(tableau, lignes+1, colonnes)
 
 			// Retirer la colonne de la liste et démarquer la position pour revenir en arrière dans la récursion
-			columns = columns[:len(columns)-1]
-			board[row][col] = false
+			colonnes = colonnes[:len(colonnes)-1]
+			tableau[lignes][colonne] = false
 		}
 	}
 }
 
-func isValid(columns []int, row int, col int) bool {
-	for r, c := range columns {
+func isValid(colonnes []int, lignes int, colonne int) bool {
+	for r, c := range colonnes {
 		// Vérifier si la reine sur la ligne r et colonne c menace la position de la reine qu'on essaye de placer
-		if c == col || r-c == row-col || r+c == row+col {
+		if c == colonne || r-c == lignes-colonne || r+c == lignes+colonne {
 			return false
 		}
 	}
 	return true
 }
 
-func printBoard(columns []int) {
-	for _, col := range columns {
+func printBoard(colonnes []int) {
+	for _, colonne := range colonnes {
 		for i := 0; i < 8; i++ {
-			if i == col {
+			if i == colonne {
 				z01.PrintRune(rune(i + 49)) // convertir le chiffre en caractère ASCII correspondant
-			} else {
-				z01.PrintRune('.')
 			}
 		}
 	}
