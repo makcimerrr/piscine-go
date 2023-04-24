@@ -1,7 +1,7 @@
-package main
+package piscine
 
 import (
-	"fmt"
+	"github.com/01-edu/z01"
 )
 
 func EightQueens() {
@@ -18,7 +18,7 @@ func EightQueens() {
 func resolution(tableau [][]bool, ligne int, colonne []int) {
 	// Si toutes les reines sont placées, imprimer la solution et terminer la récursion
 	if ligne == 8 {
-		printtableau(colonne)
+		printBoard(colonne)
 		return
 	}
 
@@ -50,17 +50,13 @@ func isValid(colonne []int, ligne int, col int) bool {
 	return true
 }
 
-func printtableau(colonne []int) {
+func printBoard(colonne []int) {
 	for _, col := range colonne {
 		for i := 0; i < 8; i++ {
 			if i == col {
-				fmt.Print(i + 1)
+				z01.PrintRune(rune(i + 49)) // convertir le chiffre en caractère ASCII correspondant
 			}
 		}
 	}
-	fmt.Println()
-}
-
-func main() {
-	EightQueens()
+	z01.PrintRune('\n')
 }
