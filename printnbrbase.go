@@ -18,7 +18,7 @@ func PrintNbrBase(nbr int, base string) {
 		}
 		for j := i + 1; j < len(base); j++ { //Each character of a base must be unique. (condition 2)
 			if base[i] == base[j] {
-				/*Si i et j sont différents et c et c2 sont identiques,
+				/*Si i et j sont sont identiques,
 				il y a des caractères en double dans "base" donc invalide.*/
 				z01.PrintRune('N')
 				z01.PrintRune('V')
