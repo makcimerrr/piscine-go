@@ -15,7 +15,7 @@ func PrintNbrBase(nbr int, base string) {
 			return
 		}
 		for j, s := range base {
-			if i != j && c == s { //Each character of a base must be unique. (condition)
+			if i != j && c == s { //Each character of a base must be unique. (condition 2)
 
 				/*Si i et j sont différents et c et c2 sont identiques,
 				il y a des caractères en double dans "base" donc invalide.*/
