@@ -1,9 +1,5 @@
 package piscine
 
-import (
-	"fmt"
-)
-
 func ToUpper(s string) string {
 	c := []rune(s)
 	for i := 0; i < len([]rune(s)); i++ {
@@ -13,4 +9,3 @@ func ToUpper(s string) string {
 	}
 	return string(c)
 }
-s
