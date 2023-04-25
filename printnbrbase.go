@@ -1,26 +1,28 @@
-package piscine
+package main
 
-import (
-	"fmt"
-)
+import "github.com/01-edu/z01"
 
 func PrintNbrBase(nbr int, base string) {
 	if len(base) < 2 { //A base must contain at least 2 characters. (condition 1)
-		fmt.Println("NV")
+		z01.PrintRune('N')
+		z01.PrintRune('V')
+		z01.PrintRune('\n')
 		return
 	}
-	for i, c := range base { //A base should not contain + or - characters.(condition 3)
-		if c == '-' || c == '+' {
-			fmt.Println("NV")
+	for i := 0; i < len(base); i++ {
+		if base[i] == '+' || base[i] == '-' { //A base should not contain + or - characters.(condition 3)
+			z01.PrintRune('N')
+			z01.PrintRune('V')
+			z01.PrintRune('\n')
 			return
 		}
-		for j, s := range base {
-			if i != j && c == s { //Each character of a base must be unique. (condition 2)
-
+		for j := i + 1; j < len(base); j++ { //Each character of a base must be unique. (condition 2)
+			if base[i] == base[j] {
 				/*Si i et j sont différents et c et c2 sont identiques,
 				il y a des caractères en double dans "base" donc invalide.*/
-
-				fmt.Println("NV")
+				z01.PrintRune('N')
+				z01.PrintRune('V')
+				z01.PrintRune('\n')
 				return
 			}
 		}
@@ -32,12 +34,23 @@ func PrintNbrBase(nbr int, base string) {
 	}
 	for nbr > 0 {
 		digit := nbr % len(base)              //correspond au chiffre courant dans la nouvelle base
-		result = string(base[digit]) + result //construis la chaine en ajoutant caracteres par caracteres.
+		result = string(base[digit]) + result //construis la chaine en ajoutant caractère par caractère
 		nbr = nbr / len(base)                 //determine le prochain chiffre a convertir.
 	}
 	if negative {
 		result = "-" + result //si negatif affiche le signe "-" devant.
 	}
 
-	fmt.Println(result)
+	for _, r := range result { //parcourt chaque caractère de la variable "result" contenant la conversion, et affiche chaque caractère
+		z01.PrintRune(rune(r)) //affiche le résultat de la conversion de l'entier dans la base, caractère par caractère
+	}
+	z01.PrintRune('\n')
+}
+
+func main() {
+	PrintNbrBase(125, "0123456789")
+	PrintNbrBase(-125, "01")
+	PrintNbrBase(125, "0123456789ABCDEF")
+	PrintNbrBase(-125, "choumi")
+	PrintNbrBase(125, "aa")
 }
