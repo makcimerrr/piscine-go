@@ -44,7 +44,6 @@ func PrintNbrBase(nbr int, base string) {
 		z01.PrintRune('8')
 		z01.PrintRune('0')
 		z01.PrintRune('8')
-		z01.PrintRune('\n')
 		return
 	}
 	var result string
