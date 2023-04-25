@@ -1,4 +1,4 @@
-package pisicne
+package piscine
 
 func AlphaCount(s string) int {
 	count := 0
