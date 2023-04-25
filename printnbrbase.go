@@ -6,14 +6,12 @@ func PrintNbrBase(nbr int, base string) {
 	if len(base) < 2 { //A base must contain at least 2 characters. (condition 1)
 		z01.PrintRune('N')
 		z01.PrintRune('V')
-		z01.PrintRune('\n')
 		return
 	}
 	for i := 0; i < len(base); i++ {
 		if base[i] == '+' || base[i] == '-' { //A base should not contain + or - characters.(condition 3)
 			z01.PrintRune('N')
 			z01.PrintRune('V')
-			z01.PrintRune('\n')
 			return
 		}
 		for j := i + 1; j < len(base); j++ { //Each character of a base must be unique. (condition 2)
@@ -22,7 +20,6 @@ func PrintNbrBase(nbr int, base string) {
 				il y a des caractères en double dans "base" donc invalide.*/
 				z01.PrintRune('N')
 				z01.PrintRune('V')
-				z01.PrintRune('\n')
 				return
 			}
 		}
@@ -43,6 +40,5 @@ func PrintNbrBase(nbr int, base string) {
 
 	for _, r := range result { //parcourt chaque caractère de la variable "result" contenant la conversion, et affiche chaque caractère
 		z01.PrintRune(rune(r)) //affiche le résultat de la conversion de l'entier dans la base, caractère par caractère
-	}
-	z01.PrintRune('\n')
+	
 }
