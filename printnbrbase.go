@@ -40,5 +40,5 @@ func PrintNbrBase(nbr int, base string) {
 
 	for _, r := range result { //parcourt chaque caractère de la variable "result" contenant la conversion, et affiche chaque caractère
 		z01.PrintRune(rune(r)) //affiche le résultat de la conversion de l'entier dans la base, caractère par caractère
-	
+	}
 }
