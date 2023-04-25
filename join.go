@@ -1,8 +1,4 @@
-package main
-
-import (
-	"fmt"
-)
+package piscine
 
 func Join(strs []string, sep string) string {
 	step := ""
@@ -18,9 +14,4 @@ func Join(strs []string, sep string) string {
 		}
 	}
 	return step
-}
-
-func main() {
-	toConcat := []string{"Hello!", " How", " are", " you?"}
-	fmt.Println(Join(toConcat, ":"))
 }
