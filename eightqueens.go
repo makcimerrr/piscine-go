@@ -1,4 +1,4 @@
-package main
+package piscine
 
 import (
 	"github.com/01-edu/z01"
@@ -55,8 +55,4 @@ func printBoard(colonnes []int) {
 		}
 	}
 	z01.PrintRune('\n')
-}
-
-func main() {
-	EightQueens()
 }
