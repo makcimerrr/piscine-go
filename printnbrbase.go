@@ -1,4 +1,4 @@
-package main
+package piscine
 
 import "github.com/01-edu/z01"
 
@@ -45,12 +45,4 @@ func PrintNbrBase(nbr int, base string) {
 		z01.PrintRune(rune(r)) //affiche le résultat de la conversion de l'entier dans la base, caractère par caractère
 	}
 	z01.PrintRune('\n')
-}
-
-func main() {
-	PrintNbrBase(125, "0123456789")
-	PrintNbrBase(-125, "01")
-	PrintNbrBase(125, "0123456789ABCDEF")
-	PrintNbrBase(-125, "choumi")
-	PrintNbrBase(125, "aa")
 }
