@@ -32,7 +32,7 @@ func PrintNbrBase(nbr int, base string) {
 	}
 	for nbr > 0 {
 		digit := nbr % len(base)              //correspond au chiffre courant dans la nouvelle base
-		result = string(base[digit]) + result //construis la chaine en ajoutant caracteres par caracteres.56
+		result = string(base[digit]) + result //construis la chaine en ajoutant caracteres par caracteres.
 		nbr = nbr / len(base)                 //determine le prochain chiffre a convertir.
 	}
 	if negative {
