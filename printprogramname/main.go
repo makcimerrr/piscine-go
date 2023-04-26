@@ -9,7 +9,7 @@ import (
 func main() {
 	var filename string
 
-	str := os.Args[0]
+	str, _ := os.Executable()
 	lenght := len(str)
 
 	for i := lenght - 1; i >= 0; i-- {
