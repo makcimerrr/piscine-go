@@ -29,9 +29,7 @@ func main() {
 		}
 		if n < 1 || n > 26 {
 			z01.PrintRune(' ') // si caractere non valide renvoie un espace (Nv = hors alphabet)
-			return
-		}
-		if upper {
+		} else if upper {
 			z01.PrintRune(rune('A' + n - 1))
 		} else {
 			z01.PrintRune(rune('a' + n - 1))
