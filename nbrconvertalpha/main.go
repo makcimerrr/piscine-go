@@ -13,7 +13,7 @@ func main() {
 		upper = true
 		args = args[1:] // et prends en compte l'argument suivant pour ignorer upper
 	}
-	if len(args) == 0 { // si aucune demande renvoie un espace et un saut de ligne
+	if len(args) == 0 { // si aucune demande renvoie rien
 		return
 	}
 	for _, arg := range args {
