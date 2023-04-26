@@ -15,7 +15,6 @@ func main() {
 	}
 	if len(args) == 0 { // si aucune demande renvoie un espace et un saut de ligne
 		z01.PrintRune(' ')
-		z01.PrintRune('\n')
 		return
 	}
 	for _, arg := range args {
