@@ -13,7 +13,7 @@ func main() {
 	lenght := len(str)
 
 	for i := lenght - 1; i >= 0; i-- {
-		if str[i] == '/' {
+		if str[i] == '/' || str[i] == '\\' {
 			filename = str[i+1:]
 			break
 		}
