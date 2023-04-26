@@ -7,21 +7,6 @@ import (
 	"github.com/01-edu/z01"
 )
 
-func fHelp() {
-	fmt.Printf("--insert\n  -i\n\t This flag inserts the string into the string passed as argument.\n--order\n  -o\n\t This flag will behave like a boolean, if it is called it will order the argument.\n")
-}
-
-func TRIEUR(table []rune) string {
-	for i := 0; i < len(table); i++ {
-		for j := i + 1; j < len(table); j++ {
-			if table[i] > table[j] {
-				table[i], table[j] = table[j], table[i]
-			}
-		}
-	}
-	return string(table)
-}
-
 func main() {
 	args := os.Args[1:]
 	length := len(args)
@@ -59,4 +44,18 @@ func main() {
 	}
 	fmt.Printf(str)
 	z01.PrintRune('\n')
+}
+func TRIEUR(table []rune) string {
+	for i := 0; i < len(table); i++ {
+		for j := i + 1; j < len(table); j++ {
+			if table[i] > table[j] {
+				table[i], table[j] = table[j], table[i]
+			}
+		}
+	}
+	return string(table)
+}
+
+func fHelp() {
+	fmt.Printf("--insert\n  -i\n\t This flag inserts the string into the string passed as argument.\n--order\n  -o\n\t This flag will behave like a boolean, if it is called it will order the argument.\n")
 }
