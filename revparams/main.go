@@ -7,7 +7,7 @@ import (
 )
 
 func main() {
-	argument := os.Args
+	argument := os.Args[0:]
 	lenght := len(argument)
 	for i := lenght - 1; i >= 0; i-- {
 		if i != 0 {
