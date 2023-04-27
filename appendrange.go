@@ -3,11 +3,11 @@ package piscine
 func AppendRange(min, max int) []int {
 
 	if min >= max {
-		return nil //indique l'absence de valeur
+		return nil
 	}
 	var answer []int
 	for i := min; i < max; i++ {
-		answer = append(answer, i) //ajoute les elements a la tranche
+		answer = append(answer, i)
 	}
 
 	return answer
