@@ -6,9 +6,11 @@ func ConcatParams(args []string) string {
 	}
 
 	result := make([]byte, 0, len(args)*20)
-	for _, arg := range args {
+	for c, arg := range args {
 		result = append(result, []byte(arg)...)
-		result = append(result, '\n')
+		if c < len(args)-1 {
+			result = append(result, '\n')
+		}
 	}
 	return string(result)
 }
