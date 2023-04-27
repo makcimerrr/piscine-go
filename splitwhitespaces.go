@@ -1,4 +1,4 @@
-package piscine
+package main
 
 func SplitWhiteSpaces(s string) []string {
 	chaine := make([]string, 0)
