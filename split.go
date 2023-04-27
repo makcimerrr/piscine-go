@@ -1,4 +1,4 @@
-package main
+package piscine
 
 func Split(s, sep string) []string {
 
