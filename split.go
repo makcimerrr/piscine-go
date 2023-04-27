@@ -1,6 +1,4 @@
-package main
-
-import "fmt"
+package piscine
 
 func Split(s, sep string) []string {
 
@@ -21,9 +19,4 @@ func Split(s, sep string) []string {
 	decodage = append(decodage, s[i:])
 
 	return decodage
-}
-
-func main() {
-	s := "HelloHAhowHAareHAyou?"
-	fmt.Printf("%#v\n", Split(s, "HA"))
 }
