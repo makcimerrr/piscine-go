@@ -5,8 +5,8 @@ func SplitWhiteSpaces(s string) []string {
 	mot := ""
 	flag := false
 
-	for _, char := range s {
-		if char == ' ' || char == '\t' || char == '\n' {
+	for _, c := range s {
+		if c == ' ' || c == '\t' || c == '\n' {
 			if flag {
 
 				chaine = append(chaine, mot)
@@ -14,7 +14,7 @@ func SplitWhiteSpaces(s string) []string {
 			}
 			flag = false
 		} else {
-			mot += string(char)
+			mot += string(c)
 			flag = true
 		}
 	}
