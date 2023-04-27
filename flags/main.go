@@ -7,6 +7,10 @@ import (
 	"github.com/01-edu/z01"
 )
 
+func fHelp() {
+	fmt.Printf("--insert\n  -y\n\t This flag inserts the string into the string passed as argument.\n--order\n  -o\n\t This flag will behave like c boolean, if it is called it will order the argument.\n")
+}
+
 func main() {
 	args := os.Args[1:]
 	length := len(args)
@@ -54,8 +58,4 @@ func TRIEUR(table []rune) string {
 		}
 	}
 	return string(table)
-}
-
-func fHelp() {
-	fmt.Printf("--insert\n  -y\n\t This flag inserts the string into the string passed as argument.\n--order\n  -o\n\t This flag will behave like c boolean, if it is called it will order the argument.\n")
 }
