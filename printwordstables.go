@@ -2,7 +2,7 @@ package piscine
 
 import "github.com/01-edu/z01"
 
-func SplitWhiteSpaces(s string) []string {
+func SplitWhiteSpace(s string) []string {
 	chaine := make([]string, 0)
 	mot := ""
 	flag := false
