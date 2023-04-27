@@ -3,7 +3,7 @@ package piscine
 func Split(s, sep string) []string {
 
 	var decodage []string
-	chaines := len(s)
+	str := len(s)
 	separateur := len(sep)
 	i := 0
 	for j := 0; j < chaines; j++ {
