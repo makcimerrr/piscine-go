@@ -1,4 +1,4 @@
-package main
+package piscine
 
 func SplitWhiteSpaces(s string) []string {
 	chaine := make([]string, 0)
@@ -7,7 +7,7 @@ func SplitWhiteSpaces(s string) []string {
 
 	for _, c := range s {
 		if c == ' ' || c == '\t' || c == '\n' {
-			if flag {
+			if flag == true {
 
 				chaine = append(chaine, mot)
 				mot = ""
@@ -19,7 +19,7 @@ func SplitWhiteSpaces(s string) []string {
 		}
 	}
 
-	if flag {
+	if flag == true {
 		chaine = append(chaine, mot)
 	}
 
