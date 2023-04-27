@@ -13,23 +13,23 @@ func main() {
 	upper := false
 	insert := ""
 	str := ""
-	for i, a := range args {
-		if length == 0 || a == "--help" || a == "-h" {
+	for y, c := range args {
+		if length == 0 || c == "--help" || c == "-h" {
 			fHelp()
 			return
-		} else if a == "--order" || a == "-o" {
+		} else if c == "--order" || c == "-o" {
 			upper = true
-		} else if a != "" && a[:1] == "-" {
-			if a[:3] == "-i=" {
-				insert = a[3:]
-			} else if a[:9] == "--insert=" {
-				insert = a[9:]
+		} else if c != "" && c[:1] == "-" {
+			if c[:3] == "-y=" {
+				insert = c[3:]
+			} else if c[:9] == "--insert=" {
+				insert = c[9:]
 			}
 		} else {
-			if i != length-1 {
-				str = str + a
+			if y != length-1 {
+				str = str + c
 			} else {
-				str = str + a + insert
+				str = str + c + insert
 			}
 		}
 	}
@@ -46,10 +46,10 @@ func main() {
 	z01.PrintRune('\n')
 }
 func TRIEUR(table []rune) string {
-	for i := 0; i < len(table); i++ {
-		for j := i + 1; j < len(table); j++ {
-			if table[i] > table[j] {
-				table[i], table[j] = table[j], table[i]
+	for y := 0; y < len(table); y++ {
+		for z := y + 1; z < len(table); z++ {
+			if table[y] > table[z] {
+				table[y], table[z] = table[z], table[y]
 			}
 		}
 	}
@@ -57,5 +57,5 @@ func TRIEUR(table []rune) string {
 }
 
 func fHelp() {
-	fmt.Printf("--insert\n  -i\n\t This flag inserts the string into the string passed as argument.\n--order\n  -o\n\t This flag will behave like a boolean, if it is called it will order the argument.\n")
+	fmt.Printf("--insert\n  -y\n\t This flag inserts the string into the string passed as argument.\n--order\n  -o\n\t This flag will behave like c boolean, if it is called it will order the argument.\n")
 }
