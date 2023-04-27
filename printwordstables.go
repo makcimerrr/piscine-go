@@ -1,4 +1,4 @@
-package pisicne
+package piscine
 
 import "github.com/01-edu/z01"
 
@@ -29,8 +29,8 @@ func SplitWhiteSpaces(s string) []string {
 }
 
 func PrintWordsTables(a []string) {
-	for _, c := range a {
-		for _, z := range c {
+	for _, y := range a {
+		for _, z := range y {
 			z01.PrintRune(z)
 		}
 		z01.PrintRune('\n')
