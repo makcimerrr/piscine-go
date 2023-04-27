@@ -1,22 +1,19 @@
 package piscine
 
 func Split(s, sep string) []string {
-
 	var decodage []string
-	chaine := len(s)
-	separateur := len(sep)
-	i := 0
-	for j := 0; j < chaine; j++ {
-		if j+separateur > chaine || s[j:j+separateur] != sep {
-			continue
+	a := 0
+	b := 0
+	lenght := len(s)
+	lenght2 := len(sep)
+	for i := 0; i < lenght; i++ {
+		b = Index(s[a:], sep)
+		if b < 0 {
+			break
 		}
-
-		decodage = append(decodage, s[i:j])
-
-		i = j + separateur
+		decodage = append(decodage, s[a:a+b])
+		a = a + b + lenght2
 	}
-
-	decodage = append(decodage, s[i:])
-
+	decodage = append(decodage, s[a:])
 	return decodage
 }
