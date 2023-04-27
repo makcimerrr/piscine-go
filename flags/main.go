@@ -8,51 +8,54 @@ import (
 )
 
 func fHelp() {
-	fmt.Printf("--insert\n  -i\n\t This flag inserts the string into the string passed as argument.\n--order\n  -o\n\t This flag will behave like a boolean, if it is called it will order the argument.\n")
+	fmt.Printf("--insert\n  -y\n\t This flag inserts the string into the string passed as argument.\n--order\n  -o\n\t This flag will behave like c boolean, if it is called it will order the argument.\n")
 }
-func fOrder(table []rune) string {
-	for i := 0; i < len(table); i++ {
-		for j := i + 1; j < len(table); j++ {
-			if table[i] > table[j] {
-				table[i], table[j] = table[j], table[i]
+
+func main() {
+	args := os.Args[1:]
+	length := len(args)
+	upper := false
+	insert := ""
+	str := ""
+	for y, c := range args {
+		if length == 0 || c == "--help" || c == "-h" {
+			fHelp()
+			return
+		} else if c == "--order" || c == "-o" {
+			upper = true
+		} else if c != "" && c[:1] == "-" {
+			if c[:3] == "-y=" {
+				insert = c[3:]
+			} else if c[:9] == "--insert=" {
+				insert = c[9:]
+			}
+		} else {
+			if y != length-1 {
+				str = str + c
+			} else {
+				str = str + c + insert
+			}
+		}
+	}
+
+	if upper == true {
+		slicerune := []rune(str)
+		str = trieur(slicerune)
+	}
+	if str == "" {
+		fHelp()
+		return
+	}
+	fmt.Print(str)
+	z01.PrintRune('\n')
+}
+func trieur(table []rune) string {
+	for y := 0; y < len(table); y++ {
+		for z := y + 1; z < len(table); z++ {
+			if table[y] > table[z] {
+				table[y], table[z] = table[z], table[y]
 			}
 		}
 	}
 	return string(table)
-}
-func fInsert() {
-}
-func main() {
-	toto := os.Args[1:]
-	lentoto := len(toto)
-	flago := false
-	valins := ""
-	resfinal := ""
-	for _, a := range toto {
-		if lentoto == 0 || a == "--help" || a == "-h" { // si on trouve un help = msg d'aide + quit
-			fHelp()
-			return
-		} else if a == "--order" || a == "-o" { // test si présence d'un order (ou +)
-			flago = true
-		} else if a != "" && a[:1] == "-" {
-			if a[:3] == "-i=" { // ajout valeur après -i=
-				valins = valins + a[3:]
-			} else if a[:9] == "--insert=" {
-				valins = valins + a[9:] // ajout valeur après --insert=
-			}
-		} else {
-			resfinal = resfinal + a // on regroupe les args
-		}
-	}
-	resfinal = resfinal + valins // ajout valeur insert, si aucun insert resfinal = resfinal + 0
-	if flago == true {           // sort des valeurs
-		resrune := []rune(resfinal)
-		resfinal = fOrder(resrune)
-	}
-	if resfinal == "" {
-		fHelp()
-		return
-	}
-	fmt.Printf(resfinal)
-	z01.PrintRune('\n')
 }
