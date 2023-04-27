@@ -1,35 +1,27 @@
 package piscine
 
-import (
-	"fmt"
-)
-
 func SplitWhiteSpaces(s string) []string {
-	mot := []string{}
-	chaine := ""
+	chaine := make([]string, 0)
+	mot := ""
 	flag := false
 
-	for _, c := range s {
-		if c == ' ' || c == '\t' || c == '\n' {
+	for _, char := range s {
+		if char == ' ' || char == '\t' || char == '\n' {
 			if flag {
 
-				mot = append(mot, chaine)
-				chaine = ""
+				chaine = append(chaine, mot)
+				mot = ""
 			}
 			flag = false
 		} else {
-			chaine += string(c)
+			mot += string(char)
 			flag = true
 		}
 	}
 
 	if flag {
-		mot = append(mot, chaine)
+		chaine = append(chaine, mot)
 	}
 
-	return mot
-}
-
-func main() {
-	fmt.Printf("%#v\n", SplitWhiteSpaces("Hello how are you?"))
+	return chaine
 }
