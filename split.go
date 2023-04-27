@@ -1,13 +1,15 @@
-package piscine
+package main
+
+import "fmt"
 
 func Split(s, sep string) []string {
 
 	var decodage []string
-	str := len(s)
+	chaine := len(s)
 	separateur := len(sep)
 	i := 0
-	for j := 0; j < chaines; j++ {
-		if j+separateur > chaines || s[j:j+separateur] != sep {
+	for j := 0; j < chaine; j++ {
+		if j+separateur > chaine || s[j:j+separateur] != sep {
 			continue
 		}
 
@@ -19,4 +21,9 @@ func Split(s, sep string) []string {
 	decodage = append(decodage, s[i:])
 
 	return decodage
+}
+
+func main() {
+	s := "HelloHAhowHAareHAyou?"
+	fmt.Printf("%#v\n", Split(s, "HA"))
 }
