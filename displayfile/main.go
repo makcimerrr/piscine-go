@@ -23,5 +23,5 @@ func main() {
 		return
 	}
 
-	fmt.Println(string(message))
+	os.Stdout.Write(message)
 }
