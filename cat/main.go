@@ -1,29 +1,35 @@
 package main
 
 import (
-	"fmt"
+	"io"
 	"io/ioutil"
 	"os"
+
+	"github.com/01-edu/z01"
 )
 
 func main() {
-	if len(os.Args) == 1 {
-		// Pas d'arguments, lire depuis stdin
-		bytes, err := ioutil.ReadAll(os.Stdin)
-		if err != nil {
-			fmt.Fprintf(os.Stderr, "ERROR: %v\n", err)
-			return
-		}
-		fmt.Print(string(bytes))
-	} else {
-		// Lire depuis chaque fichier donné en argument
-		for _, filename := range os.Args[1:] {
-			bytes, err := ioutil.ReadFile(filename)
+	arg := os.Args[1:]
+	lenarg := len(arg)
+	if lenarg > 0 {
+		for i := 0; i < lenarg; i++ {
+			data, err := ioutil.ReadFile(arg[i])
 			if err != nil {
-				fmt.Fprintf(os.Stderr, "ERROR: %v\n", err)
-				continue
+				errorp := "ERROR: open " + string(arg[i]) + ": no such file or directory"
+				PrintStr(errorp)
+				z01.PrintRune('\n')
+				os.Exit(1)
 			}
-			fmt.Print(string(bytes))
+			PrintStr(string(data))
 		}
+	} else {
+		io.Copy(os.Stdout, os.Stdin)
+	}
+}
+
+func PrintStr(s string) {
+	a := len(s)
+	for i := 0; i < a; i++ {
+		z01.PrintRune(rune(s[i]))
 	}
 }
