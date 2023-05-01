@@ -15,7 +15,7 @@ func main() {
 		os.Exit(1)
 	}
 
-	numero, fichier := numberOfBytes(os.Args[1:])
+	numero, fichier := ByteNum(os.Args[1:])
 
 	printName := len(fichier) > 1
 
@@ -46,7 +46,7 @@ func main() {
 	}
 }
 
-func numberOfBytes(args []string) (int, []string) {
+func ByteNum(args []string) (int, []string) {
 	lenght := len(args)
 	numero := 0
 	var fichier []string
