@@ -46,7 +46,8 @@ func main() {
 		return
 	}
 
-	if result > 9223372036854775807 || result < -9223372036854775808 {
+	if arg2 == "+" && ((*arg1 > 0 && *arg3 > 0 && result < 0) || (*arg1 < 0 && *arg3 < 0 && result > 0)) {
+		writeString([]byte("\n"))
 		return
 	}
 
