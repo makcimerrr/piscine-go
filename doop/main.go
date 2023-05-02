@@ -52,6 +52,12 @@ func main() {
 	if arg2 == "-" && ((*arg1 > 0 && *arg3 < 0 && result < 0) || (*arg1 < 0 && *arg3 > 0 && result > 0)) {
 		return
 	}
+	if arg2 == "*" && ((*arg1 > 0 && *arg3 > 0 && result > 0) || (*arg1 < 0 && *arg3 < 0 && result > 0)) {
+		return
+	}
+	if arg2 == "/" && ((*arg1 > 0 && *arg3 < 0 && result < 0) || (*arg1 < 0 && *arg3 > 0 && result > 0)) {
+		return
+	}
 
 	writeInt64(result)
 	writeByte('\n')
