@@ -3,86 +3,54 @@ package main
 import (
 	"fmt"
 	"os"
-	"strconv"
-
-	"github.com/01-edu/z01"
 )
 
 func main() {
-	lenght := len(os.Args)
-	if lenght < 4 {
-		fmt.Println("Not enough arguments")
+	arg := os.Args[1:]
+	lenarg := len(arg)
+	erreur := false
+	sauterr := false
+	saut := true
+	if len(arg) > 2 {
+		index := BasicAtoi(arg[1])
+		for i := 2; i < lenarg; i++ {
+			data, err := os.ReadFile(arg[i])
+			if err != nil {
+				fmt.Printf(err.Error())
+				fmt.Printf("\n")
+				erreur = true
+				sauterr = false
+			} else if index <= len(data)+1 {
+				if sauterr == false && saut == true && i != 2 {
+					fmt.Printf("\n")
+				}
+				fmt.Printf("==> " + string(arg[i]) + " <==")
+				fmt.Printf("\n")
+				fmt.Printf(string(data[len(data)-index:]))
+				saut = true
+			} else if index > len(data) {
+				if sauterr == false && saut == true {
+					fmt.Printf("\n")
+				}
+				fmt.Printf("==> " + string(arg[i]) + " <==")
+				fmt.Printf("\n")
+				fmt.Printf(string(data))
+			}
+		}
+	} else {
 		os.Exit(1)
 	}
-
-	numero, fichier := ByteNum(os.Args[1:])
-
-	printName := len(fichier) > 1
-
-	for j, f := range fichier {
-		fi, err := os.Open(f)
-		if err != nil {
-			fmt.Printf("tail: cannot open '%s' for reading: No such file or directory\n", f)
-			os.Exit(1)
-		}
-		if printName {
-			fmt.Printf("==> %s <==\n", f)
-		}
-		table := make([]byte, int(numero))
-		_, er := fi.ReadAt(table, TailleFichier(fi)-int64(numero))
-		if er != nil {
-			fmt.Println(er.Error())
-		}
-
-		for _, c := range table {
-			z01.PrintRune(rune(c))
-		}
-
-		if j < len(fichier)-1 {
-			z01.PrintRune('\n')
-		}
-
-		fi.Close()
+	if erreur == true {
+		os.Exit(1)
 	}
 }
 
-func ByteNum(args []string) (int, []string) {
-	lenght := len(args)
-	numero := 0
-	var fichier []string
-	for i, v := range args {
-		var err error
-		_, err = strconv.Atoi(v)
-		if v == "-c" {
-			if i >= lenght-1 {
-				fmt.Printf("tail: option requires an argument -- 'c'\nTry 'tail --help' for more information.")
-				os.Exit(1)
-			}
-			arg := args[i+1]
-
-			numero, err = strconv.Atoi(arg)
-
-			if err != nil {
-				fmt.Printf("tail: invalid number of bytes: %s\n", arg)
-				os.Exit(1)
-			}
-			continue
-		}
-
-		if err != nil {
-			fichier = append(fichier, v)
-		}
-
+func BasicAtoi(s string) int {
+	a := len(s)
+	b := []rune(s)
+	var ret int
+	for i := 0; i < a; i++ {
+		ret = ret*10 + int((b[i])-'0')
 	}
-	return numero, fichier
-}
-
-func TailleFichier(fi *os.File) int64 {
-	fil, err := fi.Stat()
-	if err != nil {
-		fmt.Println(err.Error())
-		return 0
-	}
-
-	return fil.Size()
+	return ret
 }
