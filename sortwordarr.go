@@ -2,14 +2,11 @@ package piscine
 
 func SortWordArr(a []string) {
 	lenght := len(a)
-	for i := 1; i < lenght; {
-		if a[i-1] > a[i] {
-			lenght2 := a[i]
-			a[i] = a[i-1]
-			a[i-1] = lenght2
-			i = 1
-		} else {
-			i++
+	for i := 0; i < lenght; i++ {
+		for j := i + 1; j < lenght; j++ {
+			if a[i] > a[j] {
+				a[i], a[j] = a[j], a[i]
+			}
 		}
 	}
 }
