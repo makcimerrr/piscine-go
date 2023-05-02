@@ -29,6 +29,9 @@ func main() {
 	case "-":
 		result = *arg1 - *arg3
 	case "*":
+		if (*arg3 != 0) && (*arg1*(*arg3))/(*arg3) != *arg1 {
+			return
+		}
 		result = *arg1 * *arg3
 	case "/":
 		if *arg3 == 0 {
@@ -49,13 +52,8 @@ func main() {
 	if arg2 == "+" && ((*arg1 > 0 && *arg3 > 0 && result < 0) || (*arg1 < 0 && *arg3 < 0 && result > 0)) {
 		return
 	}
+
 	if arg2 == "-" && ((*arg1 > 0 && *arg3 < 0 && result < 0) || (*arg1 < 0 && *arg3 > 0 && result > 0)) {
-		return
-	}
-	if arg2 == "*" && ((*arg1 > 0 && *arg3 > 0 && result < 0) || (*arg1 < 0 && *arg3 < 0 && result > 0)) {
-		return
-	}
-	if arg2 == "/" && ((*arg1 > 0 && *arg3 < 0 && result < 0) || (*arg1 < 0 && *arg3 > 0 && result > 0)) {
 		return
 	}
 
