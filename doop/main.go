@@ -32,13 +32,13 @@ func main() {
 		result = *arg1 * *arg3
 	case "/":
 		if *arg3 == 0 {
-			writeString("No division by 0\n")
+			writeString([]byte("No division by 0\n"))
 			return
 		}
 		result = *arg1 / *arg3
 	case "%":
 		if *arg3 == 0 {
-			writeString("No modulo by 0\n")
+			writeString([]byte("No modulo by 0\n"))
 			return
 		}
 		result = *arg1 % *arg3
@@ -73,10 +73,8 @@ func parseInt64(s string) *int64 {
 	return &x
 }
 
-func writeString(s string) {
-	var buf [len(s)]byte
-	copy(buf[:], s)
-	os.Stdout.Write(buf[:])
+func writeString(s []byte) {
+	os.Stdout.Write(s)
 }
 
 func writeByte(b byte) {
