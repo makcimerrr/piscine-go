@@ -10,6 +10,7 @@ func PrintStr(s string) {
 	for _, r := range s {
 		z01.PrintRune(r)
 	}
+	z01.PrintRune('\n')
 }
 
 func OpenDoor(door *Door) bool {
