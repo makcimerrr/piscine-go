@@ -2,15 +2,25 @@ package main
 
 import "fmt"
 
-func main() {
-	var donnie Pilot
-	donnie.Pilot = "Donnie"
-	donnie.Name = "Donnie"
-	donnie.Life = 100.0
-	donnie.Age = 24
-	donnie.Aircraft = AIRCRAFT1
+package main
 
-	fmt.Println(donnie)
-}
+import "fmt"
 
 const AIRCRAFT1 = 1
+
+type Pilot struct {
+    Name     string
+    Life     float64
+    Age      int
+    Aircraft int
+}
+
+func main() {
+    donnie := Pilot{
+        Name:     "Donnie",
+        Life:     100.0,
+        Age:      24,
+        Aircraft: AIRCRAFT1,
+    }
+    fmt.Println(donnie)
+}
