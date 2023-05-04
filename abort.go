@@ -1,6 +1,4 @@
-package main
-
-import "fmt"
+package piscine
 
 func Abort(a, b, c, d, e int) int {
 	var tab []int
@@ -24,7 +22,7 @@ func SortIntegerTable(table []int) {
 	}
 }
 
-func main() {
+/*func main() {
 	middle := Abort(2, 3, 8, 5, 7)
 	fmt.Println(middle)
-}
+}*/
