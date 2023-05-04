@@ -1,6 +1,6 @@
 package main
 
-import "fmt"
+import "github.com/01-edu/z01"
 
 type Door struct {
 	state string
@@ -8,7 +8,7 @@ type Door struct {
 
 func PrintStr(s string) {
 	for _, r := range s {
-		fmt.Print(string(r))
+		z01.PrintRune(r)
 	}
 }
 
