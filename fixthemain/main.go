@@ -20,7 +20,7 @@ func OpenDoor(door *Door) bool {
 }
 
 func IsDoorOpen(door *Door) bool {
-	PrintStr("Is the Door opened?")
+	PrintStr("is the Door opened ?")
 	return door.state == "OPEN"
 }
 
@@ -31,7 +31,7 @@ func CloseDoor(door *Door) bool {
 }
 
 func IsDoorClose(door *Door) bool {
-	PrintStr("Is the Door closed?")
+	PrintStr("is the Door closed ?")
 	return door.state == "CLOSED"
 }
 
