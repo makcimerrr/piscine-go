@@ -1,6 +1,4 @@
-package main
-
-import "fmt"
+package piscine
 
 func ActiveBits(n int) int {
 	count := 0
@@ -13,6 +11,6 @@ func ActiveBits(n int) int {
 	return count
 }
 
-func main() {
+/*func main() {
 	fmt.Println(ActiveBits(7))
-}
+}*/
