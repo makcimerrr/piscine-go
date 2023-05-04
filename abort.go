@@ -3,12 +3,12 @@ package piscine
 func Abort(a, b, c, d, e int) int {
 	var tab []int
 	tab = append(tab, a, b, c, d, e)
-	SortIntegerTable(tab)
+	Sort(tab)
 	res := tab[2]
 	return res
 }
 
-func SortIntegerTable(table []int) {
+func Sort(table []int) {
 	a := len(table)
 	for i := 1; i < a; {
 		if table[i-1] > table[i] {
