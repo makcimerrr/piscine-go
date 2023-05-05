@@ -1,23 +1,22 @@
 package piscine
 
 func Unmatch(a []int) int {
-	liste := make(map[int]int)
-
-	for _, count := range a {
-		liste[count]++
-	}
-
-	for num, count := range liste {
+	for _, c := range a {
+		count := 0
+		for _, v := range a {
+			if c == v {
+				count = count + 1
+			}
+		}
 		if count%2 != 0 {
-			return num
+			return c
 		}
 	}
-
 	return -1
 }
 
 /*func main() {
-	a := []int{1, 2, 1, 1, 4, 5, 5, 4, 1, 7}
+	a := []int{1, 2, 3, 4, 5, 6, 7, 8}
 	unmatch := Unmatch(a)
 	fmt.Println(unmatch)
 }*/
