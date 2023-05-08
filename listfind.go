@@ -40,13 +40,13 @@ func CompStr(a, b interface{}) bool {
 	return a == b
 }
 
-func ListFind(l List, ref interface{}, comp func(a, b interface{}) bool) interface{} {
-	it := l.Head
-	for it != nil {
-		if comp(it.Data, ref) {
-			return &it.Data
+func ListFind(l *List, ref interface{}, comp func(a, b interface{}) bool) *interface{} {
+	node := l.Head
+	for node != nil {
+		if comp(node.Data, ref) {
+			return &node.Data
 		}
-		it = it.Next
+		node = node.Next
 	}
 	return nil
 }
