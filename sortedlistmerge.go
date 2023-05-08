@@ -43,6 +43,12 @@ type NodeI struct {
 }*/
 
 func SortedListMerge(n1 *NodeI, n2 *NodeI) *NodeI {
+	// Cas particuliers
+	if n1 == nil {
+		return n2
+	} else if n2 == nil {
+		return n1
+	}
 	// Fusion des deux listes
 	var mergedList *NodeI
 	if n1.Data < n2.Data {
