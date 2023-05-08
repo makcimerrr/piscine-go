@@ -57,7 +57,11 @@ func ListSort(l *NodeI) *NodeI {
 		}
 		// Insertion du nœud dans la liste triée
 		node := &NodeI{Data: l.Data, Next: z}
-		m.Next = node
+		if z == n {
+			n = node
+		} else {
+			m.Next = node
+		}
 		l = l.Next
 	}
 	return n
