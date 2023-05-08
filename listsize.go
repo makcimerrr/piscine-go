@@ -8,18 +8,6 @@ func ListSize(l *List) int {
 	return size
 }
 
-func ListPushFront(l *List, data interface{}) {
-	n := &NodeL{Data: data, Next: l.Head}
-
-	l.Head = n
-
-	if l.Tail != nil {
-		return
-	} else {
-		l.Tail = n
-	}
-}
-
 /*func main() {
 	link := &List{}
 
