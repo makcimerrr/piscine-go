@@ -33,12 +33,12 @@ func main() {
 	link = listPushBack(link, 1)
 
 	PrintList(ListSort(link))
-}
+}*/
 
 type NodeI struct {
 	Data int
 	Next *NodeI
-}*/
+}
 
 func ListSort(l *NodeI) *NodeI {
 	if l == nil || l.Next == nil {
