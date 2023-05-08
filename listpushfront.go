@@ -1,17 +1,17 @@
 package piscine
 
-type NodeL struct {
+type NodeLs struct {
 	Data interface{}
-	Next *NodeL
+	Next *NodeLs
 }
 
-type List struct {
-	Head *NodeL
-	Tail *NodeL
+type Lists struct {
+	Head *NodeLs
+	Tail *NodeLs
 }
 
-func ListPushFront(l *List, data interface{}) {
-	n := &NodeL{Data: data, Next: l.Head}
+func ListPushFront(l *Lists, data interface{}) {
+	n := &NodeLs{Data: data, Next: l.Head}
 
 	l.Head = n
 
@@ -23,7 +23,7 @@ func ListPushFront(l *List, data interface{}) {
 }
 
 /*func main() {
-	link := &List{}
+	link := &Lists{}
 
 	ListPushFront(link, "Hello")
 	ListPushFront(link, "man")
