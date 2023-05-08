@@ -1,7 +1,7 @@
 package piscine
 
 /*func ListPushBack(l *List, data interface{}) {
-	n := &NodeL{Data: data}
+	n := &itL{Data: data}
 
 	if l.Tail != nil {
 		l.Tail.Next = n
@@ -26,20 +26,27 @@ func main() {
 	fmt.Println(*found)
 }
 
-type NodeL struct {
+type itL struct {
 	Data interface{}
-	Next *NodeL
+	Next *itL
 }
 
 type List struct {
-	Head *NodeL
-	Tail *NodeL
+	Head *itL
+	Tail *itL
 }*/
 
 func CompStr(a, b interface{}) bool {
 	return a == b
 }
 
-func ListFind(l *List, ref interface{}, comp func(a, b interface{}) bool) *interface{} {
-	return &l.Head.Next.Next.Data
+func ListFind(l List, ref interface{}, comp func(a, b interface{}) bool) interface{} {
+	it := l.Head
+	for it != nil {
+		if comp(it.Data, ref) {
+			return &it.Data
+		}
+		it = it.Next
+	}
+	return nil
 }
