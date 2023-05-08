@@ -28,7 +28,7 @@ func ListForEach(l *List, f func(*NodeL)) {
 	}
 }
 
-/*func Add2_node(node *NodeL) {
+func Add2_node(node *NodeL) {
 	switch node.Data.(type) {
 	case int:
 		node.Data = node.Data.(int) + 2
@@ -46,7 +46,7 @@ func Subtract3_node(node *NodeL) {
 	}
 }
 
-func main() {
+/*func main() {
 	link := &List{}
 
 	ListPushBack(link, "1")
