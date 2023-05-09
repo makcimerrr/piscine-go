@@ -31,23 +31,19 @@ func main() {
 	BTreeApplyInorder(root, fmt.Println)
 }*/
 
-func BTreeTransplant(root, nodepar, rplcde *TreeNode) *TreeNode {
-	root := &TreeNode{Data: "04"}
-	root.Left = &TreeNode{Data: "01"}
-	root.Left.Right = &TreeNode{Data: "02"}
-	root.Left.Right.Right = &TreeNode{Data: "03"}
-	root.Right = &TreeNode{Data: "07"}
-	root.Right.Left = &TreeNode{Data: "05"}
-	root.Right.Right = &TreeNode{Data: "12"}
-	root.Right.Right.Left = &TreeNode{Data: "10"}
-
-	nodepar := root.Right
-	rplcde := &TreeNode{Data: "55"}
-	rplcde.Left = &TreeNode{Data: "60"}
-	rplcde.Right = &TreeNode{Data: "33"}
-	rplcde.Right.Left = &TreeNode{Data: "12"}
-	rplcde.Right.Left.Left = &TreeNode{Data: "15"}
-
-	root = BTreeTransplant(root, nodepar, rplcde)
-
+func BTreeTransplant(root, node, rplc *TreeNode) *TreeNode {
+	if root == nil {
+		return root
+	}
+	if root.Left != nil && root.Left == node {
+		root.Left = rplc
+		root.Left.Parent = root
+	} else if root.Right != nil && root.Right == node {
+		root.Right = rplc
+		root.Right.Parent = root
+	} else {
+		root.Left = BTreeTransplant(root.Left, node, rplc)
+		root.Right = BTreeTransplant(root.Right, node, rplc)
+	}
+	return root
 }
