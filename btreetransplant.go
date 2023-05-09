@@ -35,10 +35,35 @@ func BTreeTransplant(root, nodepar, rplcde *TreeNode) *TreeNode {
 	if nodepar == nil {
 		return rplcde
 	}
-	if nodepar.Left == node {
-		nodepar.Left = rplcde
-	} else {
-		nodepar.Right = rplcde
+	if nodepar.Left == rplcde {
+		return root
 	}
+	if nodepar.Parent != nil {
+		if nodepar.Parent.Left == nodepar {
+			nodepar.Parent.Left = rplcde
+		} else {
+			nodepar.Parent.Right = rplcde
+		}
+	}
+	if rplcde != nil {
+		if nodepar.Left != nil {
+			rplcde.Left = nodepar.Left
+			nodepar.Left.Parent = rplcde
+		}
+		if nodepar.Right != nil {
+			rplcde.Right = nodepar.Right
+			nodepar.Right.Parent = rplcde
+		}
+		rplcde.Parent = nodepar.Parent
+	}
+	if nodepar == root {
+		return rplcde
+	}
+	if nodepar.Parent.Left == nodepar {
+		nodepar.Parent.Left = nil
+	} else {
+		nodepar.Parent.Right = nil
+	}
+	nodepar.Parent = nil
 	return root
 }
