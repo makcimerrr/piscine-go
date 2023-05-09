@@ -28,5 +28,5 @@ func BTreeInsertData(root *TreeNode, data string) *TreeNode {
 		root.Right.Parent = root
 	}
 
-	return boot
+	return root
 }
