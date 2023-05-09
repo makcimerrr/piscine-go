@@ -1,4 +1,4 @@
-package main
+package piscine
 
 /*type TreeNode struct {
 	Left, Right, Parent *TreeNode
