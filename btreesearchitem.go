@@ -1,10 +1,6 @@
-package main
+package piscine
 
-import (
-	"fmt"
-)
-
-type TreeNode struct {
+/*type TreeNode struct {
 	Left, Right, Parent *TreeNode
 	Data                string
 }
@@ -57,7 +53,7 @@ func main() {
 	} else {
 		fmt.Println("nil")
 	}
-}
+}*/
 
 func BTreeSearchItem(root *TreeNode, elem string) *TreeNode {
 	if root == nil {
