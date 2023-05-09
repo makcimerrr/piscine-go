@@ -41,16 +41,6 @@ func main() {
 	BTreeApplyInorder(root, fmt.Println)
 }*/
 
-func BTreeMin(root *TreeNode) *TreeNode {
-	if root == nil {
-		return nil
-	}
-	if root.Left == nil {
-		return root
-	}
-	return BTreeMin(root.Left)
-}
-
 func BTreeDeleteNode(root, node *TreeNode) *TreeNode {
 	// Cas où le nœud à supprimer est une feuille
 	if node.Left == nil && node.Right == nil {
