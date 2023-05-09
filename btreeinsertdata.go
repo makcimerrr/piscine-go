@@ -21,16 +21,12 @@ func BTreeInsertData(root *TreeNode, data string) *TreeNode {
 		return &TreeNode{Data: data}
 	}
 	if data < root.Data {
-		if root.Left == nil {
-			root.Left = &TreeNode{Data: data, Parent: root}
-			return root.Left
-		}
-		return BTreeInsertData(root.Left, data)
+		root.Left = BTreeInsertData(root.Left, data)
+		root.Left.Parent = root
 	} else {
-		if root.Right == nil {
-			root.Right = &TreeNode{Data: data, Parent: root}
-			return root.Right
-		}
-		return BTreeInsertData(root.Right, data)
+		root.Right = BTreeInsertData(root.Right, data)
+		root.Right.Parent = root
 	}
+
+	return boot
 }
